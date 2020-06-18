@@ -1,0 +1,13 @@
+@import "../variables.scss";
+
+.error-box {
+    background-color: $error-bg-color;
+    padding: 5px;
+    border: 1px solid $error-border;
+    box-shadow: 3px 3px 10px rgba(255, 26, 26, 0.507),
+        -3px -3px 10px rgba(116, 15, 15, 0.514);
+}
+
+.error-box__error-name {
+    margin-left: 20px;
+}

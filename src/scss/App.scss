@@ -1,0 +1,47 @@
+@import './variables.scss';
+@import './scssComponents/nav.scss';
+@import "./scssComponents/editTask.scss";
+@import "./scssComponents/yourTask.scss";
+@import "./scssComponents/addTask.scss";
+@import "./scssComponents/error.scss";
+@import "./scssComponents/success.scss";
+@import "./scssComponents/doneTask.scss";
+@import "./scssComponents/responsive480px.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background-color: $page-bg-color;
+  color: $main-font-color;
+  min-height: 100vh;
+  font-family: "Balsamiq Sans", cursive;
+  overflow-x: hidden;
+  user-select: $secondary-color;
+}
+
+::-moz-selection {
+  background: $secondary-color;
+}
+
+::selection {
+  background: $secondary-color;
+}
+
+#root {
+  width: 100%;
+}
+
+.header {
+  font-size: $font-big;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.header__heading {
+  letter-spacing: 3px;
+}

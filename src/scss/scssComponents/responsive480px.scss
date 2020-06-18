@@ -1,0 +1,33 @@
+@import "../variables.scss";
+
+@media (max-width:480px) {
+    html {
+        font-size: 14px;
+    }
+
+    .nav__link::before {
+        font-size: $font-big * 1.5;
+        width: 300px;
+    }
+
+    .form {
+        margin: 20px 10px;
+    }
+
+    .nav__link-conteiner {
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    .nav__item {
+        margin: 5px;
+    }
+
+    .edit-section {
+        justify-content: center;
+    }
+
+    .details__date span:first-child {
+        padding-right: 5px;
+    }
+}

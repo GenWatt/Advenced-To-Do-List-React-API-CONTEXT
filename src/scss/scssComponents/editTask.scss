@@ -1,0 +1,40 @@
+@import "../variables.scss";
+@import "../mixins.scss";
+
+.edit-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    transform-origin: 95% 90%;
+}
+
+.edit-section__edit-form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin-bottom: 10px;
+    grid-column: 3/4;
+}
+
+.edit-form__label {
+    margin-top: 5px;
+}
+
+.edit-form__input {
+    @include input-style(5px, 5px);
+}
+
+.edit-form__edit-btn {
+    margin-top: 10px;
+    border-radius: 5px;
+    font-size: $font-medium;
+    cursor: pointer;
+    outline: none;
+    background-color: $secondary-color;
+    color: $main-font-color;
+    transition: background-color 0.4s ease;
+
+    &:hover,
+    &:focus {
+        background-color: $secondary-color;
+    }
+}

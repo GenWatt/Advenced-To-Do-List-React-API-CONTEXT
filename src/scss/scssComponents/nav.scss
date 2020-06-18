@@ -1,0 +1,84 @@
+@import '../variables.scss';
+
+.nav__link-conteiner {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    font-size: $font-medium;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__item {
+    position: relative;
+}
+
+.nav__link {
+    cursor: pointer;
+    border: 1px solid $secondary-color;
+    border-radius: 10px;
+    padding: 10px;
+    height: $nav-height;
+    transition: padding 0.2s ease-in, color 0.3s ease-in-out,
+        background-color 0.4s ease-in;
+    color: $main-font-color;
+    text-decoration: none;
+    display: block;
+
+    &:hover {
+        padding: 12px;
+        color: $secondary-color;
+    }
+
+    &::before {
+        content: attr(data-text);
+        position: fixed;
+        left: 50%;
+        top: 30%;
+        width: 600px;
+        text-align: center;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        font-size: $font-big * 2;
+        transition: all 0.8s ease-in-out;
+        pointer-events: none;
+    }
+
+    &:hover::before {
+        letter-spacing: 10px;
+        opacity: 0.3;
+    }
+}
+
+.nav__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: $nav-active-color;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav__overlay--slide-left {
+    transform: scaleX(1);
+    transform-origin: right;
+}
+
+.nav__overlay--slide-left-hide {
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.nav__overlay--slide-right {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav__overlay--slide-right-hide {
+    transform: scaleX(0);
+    transform-origin: right;
+}

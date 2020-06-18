@@ -1,0 +1,110 @@
+@import "../variables.scss";
+@import "../mixins.scss";
+
+.done-tasks {
+    @include task-container();
+}
+
+.done-tasks__box {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.384);
+    padding: 10px;
+    margin-top: 5px;
+    box-shadow: 3px 3px 10px rgba(255, 255, 255, 0.233),
+        -3px -3px 10px rgba(177, 171, 171, 0.5);
+}
+
+.done-tasks__title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title__heading-set {
+    display: flex;
+}
+
+.title__btn-set {
+    flex-shrink: 0;
+}
+
+.heading-set__title {
+    margin: 0 10px;
+    font-size: $font-medium;
+    word-break: break-all;
+}
+
+.done-task__more-info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.more-info__details {
+    transform-origin: top;
+    transition: transform 0.2s ease-in-out;
+    background-color: rgb(63, 63, 63);
+    box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.377),
+        -3px -3px 5px rgba(255, 255, 255, 0.377);
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    width: 100%;
+}
+
+.details__description {
+    word-break: break-all;
+}
+
+.details__date {
+    display: flex;
+    justify-content: space-between;
+}
+
+.more-info__details--hide {
+    transform: scaleY(0);
+}
+
+.more-info__expand-more {
+    background-color: transparent;
+    color: $main-font-color;
+    border: none;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    transition: transform 0.4s ease-in-out;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        width: 1px;
+        height: 1px;
+        transition: box-shadow 0.4s ease;
+    }
+
+    &:hover::before,
+    &:focus::before {
+        box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.281),
+            0 0 10px 20px rgba(255, 255, 255, 0.205),
+            0 0 10px 20px rgba(255, 255, 255, 0.158);
+    }
+}
+
+.more-info__expand-more--rotate {
+    transform: rotate(180deg);
+}
+
+.btn-set__btn {
+    @include btn-set();
+}

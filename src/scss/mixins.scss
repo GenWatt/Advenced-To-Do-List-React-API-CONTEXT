@@ -1,0 +1,41 @@
+@import "./variables.scss";
+
+@mixin btn-set {
+    background-color: transparent;
+    border-radius: 50%;
+    color: $main-font-color;
+    outline: none;
+    padding: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease-in-out, padding 0.4s ease;
+
+    &:hover,
+    &:focus {
+        background-color: rgba(255, 166, 0, 0.473);
+        padding: 8px;
+    }
+}
+
+@mixin input-style($padding: 15px, $marginTop: 10px) {
+    background-color: transparent;
+    border: 1px solid $secondary-color;
+    border-radius: 15px;
+    padding: $padding;
+    outline: none;
+    color: $main-font-color;
+    margin-top: $marginTop;
+
+    &:hover,
+    &:focus {
+        animation: shadow-impulse 0.5s ease-in-out infinite;
+    }
+}
+
+@mixin task-container($min-width:200px, $max-width:900px) {
+    display: grid;
+    grid-template-columns: minmax($min-width, $max-width);
+    justify-content: center;
+    margin: 20px 10px;
+}

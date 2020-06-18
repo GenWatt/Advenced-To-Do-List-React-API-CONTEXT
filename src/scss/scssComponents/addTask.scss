@@ -1,0 +1,113 @@
+@import "../variables.scss";
+@import "../mixins.scss";
+
+.form {
+    display: grid;
+    grid-template-columns: minmax(200px, 400px);
+    justify-content: center;
+}
+
+.form__add-task-label {
+    margin-top: 10px;
+}
+
+.form__add-task-input {
+    @include input-style();
+
+    @keyframes shadow-impulse {
+        0% {
+            box-shadow: 1px 1px 3px 0px rgba(255, 255, 255, 0.192),
+                -1px -1px 3px 0px rgb(49, 47, 47);
+        }
+
+        50% {
+            box-shadow: 3px 3px 10px 3px rgba(255, 255, 255, 0.192),
+                -3px -3px 10px 3px rgb(49, 47, 47);
+        }
+
+        100% {
+            box-shadow: 1px 1px 3px 0px rgba(255, 255, 255, 0.192),
+                -1px -1px 3px 0px rgb(49, 47, 47);
+        }
+    }
+}
+
+.form__add-task-input--description {
+    height: 300px;
+}
+
+.form__add-btn {
+    margin-top: 20px;
+    border: 1px solid $secondary-color;
+    height: 50px;
+    border-radius: 10px;
+    z-index: 1;
+    color: $main-font-color;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+
+    &::before {
+        content: "";
+        background-image: linear-gradient(35deg, $secondary-color, rgb(97, 63, 0));
+        width: 200px;
+        height: 200px;
+        transform: translateY(300px);
+        transition: transform 0.3s ease-in-out;
+        position: absolute;
+        right: 0;
+        top: 0;
+        border-radius: 50%;
+        z-index: -1;
+    }
+
+    &:hover::before,
+    &:focus::before {
+        transform: translateY(0);
+        animation: move-waves 5s ease-in infinite;
+    }
+
+    &::after {
+        content: "";
+        background-image: linear-gradient(45deg, $secondary-color, rgb(97, 63, 0));
+        width: 200px;
+        height: 200px;
+        transform: translateY(300px);
+        transition: transform 0.3s ease-in-out;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 50%;
+        z-index: -1;
+    }
+
+    &:hover::after,
+    &:focus::after {
+        transform: translateY(0);
+        animation: move-waves 5s ease-in infinite 0.5s;
+    }
+
+    @keyframes move-waves {
+        0% {
+            transform: translate(0, 0);
+        }
+
+        25% {
+            transform: translate(-50px, 0);
+        }
+
+        50% {
+            transform: translate(10px, 0);
+        }
+
+        75% {
+            transform: translate(-50px, 0);
+        }
+
+        100% {
+            transform: translate(0, 0);
+        }
+    }
+}
