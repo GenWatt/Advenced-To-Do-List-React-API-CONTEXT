@@ -1,6 +1,6 @@
 import React from "react";
 import "./scss/App.scss";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { routes } from "./parameters/config";
 
@@ -14,9 +14,9 @@ import EditTaskContextProvider from "./contexts/EditTaskContext";
 const ToDoList = () => {
   return (
     <Router basename="/">
+      <Header />
+      <NavBar />
       <main>
-        <Header />
-        <NavBar />
         <TaskContextProvider>
           <DoneTasksProvider>
             <Route

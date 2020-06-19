@@ -9,15 +9,19 @@ const NavBar = () => {
   let [prevNumber, currentNumber] = history;
   const location: any = useLocation();
 
-  useEffect(
-    () =>
-      routes.forEach((route, index: number) => {
-        if (route.path === location.pathname) setHistory([...history, index]);
-      }),
-    [update]
-  );
-
   if (history.length > 2) history.shift();
+
+  useEffect(() => {
+    routes.forEach((route, index: number) => {
+      if (
+        currentNumber === index ||
+        (currentNumber === undefined && prevNumber === index)
+      )
+        return;
+
+      if (route.path === location.pathname) setHistory((h) => [...h, index]);
+    });
+  }, [update, history]);
 
   return (
     <nav className="nav">
@@ -26,7 +30,7 @@ const NavBar = () => {
           <li className="nav__item" key={link.id}>
             <NavLink
               exact
-              to={{ pathname: link.pathname, state: link.id }}
+              to={link.pathname}
               className="nav__link"
               data-text={link.text}
               onClick={() => setUpdate(!update)}
