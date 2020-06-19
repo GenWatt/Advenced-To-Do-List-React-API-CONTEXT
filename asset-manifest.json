@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Advenced-To-Do-List-React-API-CONTEXT/static/css/main.b30ee6a1.chunk.css",
+    "main.js": "/Advenced-To-Do-List-React-API-CONTEXT/static/js/main.043eb24d.chunk.js",
+    "main.js.map": "/Advenced-To-Do-List-React-API-CONTEXT/static/js/main.043eb24d.chunk.js.map",
+    "runtime-main.js": "/Advenced-To-Do-List-React-API-CONTEXT/static/js/runtime-main.ccfd4ffd.js",
+    "runtime-main.js.map": "/Advenced-To-Do-List-React-API-CONTEXT/static/js/runtime-main.ccfd4ffd.js.map",
+    "static/js/2.31736dc7.chunk.js": "/Advenced-To-Do-List-React-API-CONTEXT/static/js/2.31736dc7.chunk.js",
+    "static/js/2.31736dc7.chunk.js.map": "/Advenced-To-Do-List-React-API-CONTEXT/static/js/2.31736dc7.chunk.js.map",
+    "index.html": "/Advenced-To-Do-List-React-API-CONTEXT/index.html",
+    "precache-manifest.35cef8c148fab0dbb4bedebbfe255e65.js": "/Advenced-To-Do-List-React-API-CONTEXT/precache-manifest.35cef8c148fab0dbb4bedebbfe255e65.js",
+    "service-worker.js": "/Advenced-To-Do-List-React-API-CONTEXT/service-worker.js",
+    "static/css/main.b30ee6a1.chunk.css.map": "/Advenced-To-Do-List-React-API-CONTEXT/static/css/main.b30ee6a1.chunk.css.map",
+    "static/js/2.31736dc7.chunk.js.LICENSE.txt": "/Advenced-To-Do-List-React-API-CONTEXT/static/js/2.31736dc7.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ccfd4ffd.js",
+    "static/js/2.31736dc7.chunk.js",
+    "static/css/main.b30ee6a1.chunk.css",
+    "static/js/main.043eb24d.chunk.js"
+  ]
+}
