@@ -6,6 +6,7 @@
     <li>you can add,edit,remove,add to done task,remove from done task,add back to your task from done task</li>
     <li>Task are saved by local storage</li>
     <li>App was created using functional components</li>
+    <li>Github pages avaliable</li>
 </ul>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
