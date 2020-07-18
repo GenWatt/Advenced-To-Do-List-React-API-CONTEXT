@@ -1,15 +1,18 @@
 @import "../../scss/variables.scss";
 
-.nav__link::before {
-    font-size: $font-big * 1.5;
-    width: 300px;
-}
 
-.nav__link-conteiner {
-    flex-direction: column;
-    margin-bottom: 10px;
-}
+@media (max-width:480px) {
+    .nav__link::before {
+        font-size: $font-big * 1.5;
+        width: 300px;
+    }
 
-.nav__item {
-    margin: 5px;
+    .nav__link-conteiner {
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    .nav__item {
+        margin: 5px;
+    }
 }

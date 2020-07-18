@@ -1,3 +1,5 @@
-.details__date span:first-child {
-    padding-right: 5px;
+@media (max-width:480px) {
+    .details__date span:first-child {
+        padding-right: 5px;
+    }
 }
