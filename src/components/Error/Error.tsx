@@ -1,8 +1,9 @@
 import React from "react";
-import { errorVariants } from "../parameters/variants";
-import { uniqueId } from "../helpers/uniqueId";
+import { errorVariants } from "../../parameters/variants";
+import { uniqueId } from "../../helpers/uniqueId";
 import { motion } from "framer-motion";
-import { ITask } from "../parameters/interfaces";
+import { ITask } from "../../parameters/interfaces";
+import "./Error.scss";
 
 interface Imessage {
   message: string;

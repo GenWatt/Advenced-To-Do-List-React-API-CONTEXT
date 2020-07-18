@@ -1,16 +1,16 @@
 import React, { createContext, useReducer } from "react";
 import TaskReducer from "./TaskReducer";
 import { ITask } from "../parameters/interfaces";
+import { EditActions } from "./Types/editActionTypes";
 
-interface IeditState {
+export interface IEditState {
   task: ITask[];
   isEdited: boolean;
 }
 
-interface IeditContext {
-  editedState: IeditState;
-  setEditMode: (isEdited: boolean) => void;
-  addTaskToEdit: (task: ITask | null) => void | null;
+interface IEditContext {
+  editedState: IEditState;
+  dispatch: React.Dispatch<EditActions>;
 }
 
 let initialState: any = {
@@ -18,38 +18,16 @@ let initialState: any = {
   isEdited: false,
 };
 
-export const EditTaskContext = createContext<IeditContext>(initialState);
+export const EditTaskContext = createContext<IEditContext>(initialState);
 
 const EditTaskContextProvider: React.FC = ({ children }): JSX.Element => {
-  const [editedState, dispatch]: [IeditState, any] = useReducer(
+  const [editedState, dispatch]: [IEditState, any] = useReducer(
     TaskReducer,
     initialState
   );
 
-  function addTaskToEdit(task: ITask | null) {
-    if (task === null) return null;
-    if (editedState.task.length && editedState.task[0].id === task.id) {
-      task = null;
-      setEditMode(false);
-    }
-
-    dispatch({
-      type: "ADD_TASK_TO_EDIT",
-      payload: task,
-    });
-  }
-
-  function setEditMode(isEdited: boolean) {
-    dispatch({
-      type: "IS_EDITED",
-      payload: isEdited,
-    });
-  }
-
   return (
-    <EditTaskContext.Provider
-      value={{ editedState, addTaskToEdit, setEditMode }}
-    >
+    <EditTaskContext.Provider value={{ editedState, dispatch }}>
       {children}
     </EditTaskContext.Provider>
   );

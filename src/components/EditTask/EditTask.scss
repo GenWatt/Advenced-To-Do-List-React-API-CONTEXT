@@ -1,5 +1,6 @@
-@import "../variables.scss";
-@import "../mixins.scss";
+@import "../../scss/variables.scss";
+@import "../../scss/mixins.scss";
+@import "./EditTask480px.scss";
 
 .edit-section {
     display: grid;

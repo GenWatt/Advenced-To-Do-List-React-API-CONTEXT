@@ -1,6 +1,7 @@
 import React from "react";
-import { successVaraints } from "../parameters/variants";
+import { successVaraints } from "../../parameters/variants";
 import { motion } from "framer-motion";
+import "./Success.scss";
 
 export default function Success() {
   return (

@@ -1,4 +1,4 @@
-export interface IDoneTask {
+export interface ITask {
   title: string;
   description: string;
   id: number;
@@ -6,9 +6,14 @@ export interface IDoneTask {
   doneDate?: string;
 }
 
-export interface ITask {
-  title: string;
-  description: string;
+export interface IRoutes {
+  path: string;
+  component: React.FC;
   id: number;
-  date: string;
+}
+
+export interface ILinks {
+  pathname: string;
+  text: string;
+  id: number;
 }

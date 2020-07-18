@@ -1,22 +1,21 @@
 import React, { createContext, useReducer, useEffect } from "react";
 import TaskReducer from "./TaskReducer";
-import { uniqueId } from "../helpers/uniqueId";
-import { IDoneTask } from "../parameters/interfaces";
+import { AddToDoneActions } from "./Types/addToDoneTypes";
+import { ITask } from "../parameters/interfaces";
 
-interface IdoneContext {
-  doneTaskState: IDoneTask[];
-  addToDone: (task: IDoneTask) => void;
-  deleteDoneTask: (id: number) => void;
+interface IDoneContext {
+  doneTaskState: ITask[];
+  dispatch: React.Dispatch<AddToDoneActions>;
 }
 
-const initialState: IdoneContext = localStorage.getItem("doneTask")
+const initialState: IDoneContext = localStorage.getItem("doneTask")
   ? JSON.parse(localStorage.getItem("doneTask") || "")
   : [];
 
-export const DoneTasksContext = createContext<IdoneContext>(initialState);
+export const DoneTasksContext = createContext(initialState);
 
 const DoneTaskProvider: React.FC = ({ children }): JSX.Element => {
-  const [doneTaskState, dispatch]: [IDoneTask[], any] = useReducer(
+  const [doneTaskState, dispatch]: [ITask[], any] = useReducer(
     TaskReducer,
     initialState
   );
@@ -26,29 +25,8 @@ const DoneTaskProvider: React.FC = ({ children }): JSX.Element => {
     [doneTaskState]
   );
 
-  function addToDone(task: IDoneTask) {
-    const doneDate: string = new Date().toLocaleString();
-
-    task.id = uniqueId(doneTaskState);
-    task.doneDate = doneDate;
-
-    dispatch({
-      type: "ADD_TO_DONE",
-      payload: task,
-    });
-  }
-
-  function deleteDoneTask(id: number) {
-    dispatch({
-      type: "DELETE_TASK",
-      payload: id,
-    });
-  }
-
   return (
-    <DoneTasksContext.Provider
-      value={{ doneTaskState, addToDone, deleteDoneTask }}
-    >
+    <DoneTasksContext.Provider value={{ doneTaskState, dispatch }}>
       {children}
     </DoneTasksContext.Provider>
   );

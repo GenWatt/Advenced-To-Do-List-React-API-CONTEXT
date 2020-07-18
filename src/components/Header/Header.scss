@@ -1,0 +1,12 @@
+@import "../../scss/variables.scss";
+
+.header {
+    font-size: $font-big;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.header__heading {
+    letter-spacing: 3px;
+}

@@ -1,12 +1,11 @@
 import React, { createContext, useReducer, useEffect } from "react";
 import TaskReducer from "./TaskReducer";
 import { ITask } from "../parameters/interfaces";
+import { AddActions } from "./Types/actionTypes";
 
 interface ITaskContext {
   state: ITask[];
-  addTask: (task: ITask) => void;
-  deleteTask: (id: number) => void;
-  editTask: (task: ITask) => void;
+  dispatch: React.Dispatch<AddActions>;
 }
 
 let initialState: ITaskContext = localStorage.getItem("task")
@@ -25,33 +24,8 @@ const TaskContextProvider: React.FC = ({ children }): JSX.Element => {
     localStorage.setItem("task", JSON.stringify(state));
   }, [state]);
 
-  function addTask(task: ITask) {
-    dispatch({
-      type: "ADD_TASK",
-      payload: task,
-    });
-  }
-
-  function deleteTask(id: number) {
-    dispatch({
-      type: "DELETE_TASK",
-      payload: id,
-    });
-  }
-
-  function editTask({ title, description, id, date }: ITask) {
-    const newTask = state.map((task) =>
-      task.id === id ? { title, description, id, date } : task
-    );
-
-    dispatch({
-      type: "EDIT_TASK",
-      payload: newTask,
-    });
-  }
-
   return (
-    <TaskContext.Provider value={{ state, addTask, deleteTask, editTask }}>
+    <TaskContext.Provider value={{ state, dispatch }}>
       {children}
     </TaskContext.Provider>
   );

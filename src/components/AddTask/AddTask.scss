@@ -1,5 +1,6 @@
-@import "../variables.scss";
-@import "../mixins.scss";
+@import "../../scss/variables.scss";
+@import "../../scss/mixins.scss";
+@import "./AddTask480px.scss";
 
 .form {
     display: grid;
@@ -37,6 +38,7 @@
 }
 
 .form__add-btn {
+    @include basic-btn();
     margin-top: 20px;
     border: 1px solid $secondary-color;
     height: 50px;
@@ -44,10 +46,8 @@
     z-index: 1;
     color: $main-font-color;
     background-color: transparent;
-    cursor: pointer;
     position: relative;
     overflow: hidden;
-    outline: none;
 
     &::before {
         content: "";

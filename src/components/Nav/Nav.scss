@@ -1,4 +1,5 @@
-@import '../variables.scss';
+@import '../../scss/variables.scss';
+@import "./Nav480px.scss";
 
 .nav__link-conteiner {
     display: flex;
@@ -24,8 +25,10 @@
     color: $main-font-color;
     text-decoration: none;
     display: block;
+    outline: none;
 
-    &:hover {
+    &:hover,
+    &:focus {
         padding: 12px;
         color: $secondary-color;
     }

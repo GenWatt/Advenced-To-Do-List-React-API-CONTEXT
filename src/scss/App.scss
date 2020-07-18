@@ -1,11 +1,4 @@
 @import './variables.scss';
-@import './scssComponents/nav.scss';
-@import "./scssComponents/editTask.scss";
-@import "./scssComponents/yourTask.scss";
-@import "./scssComponents/addTask.scss";
-@import "./scssComponents/error.scss";
-@import "./scssComponents/success.scss";
-@import "./scssComponents/doneTask.scss";
 @import "./scssComponents/responsive480px.scss";
 
 * {
@@ -33,15 +26,4 @@ body {
 
 #root {
   width: 100%;
-}
-
-.header {
-  font-size: $font-big;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
-.header__heading {
-  letter-spacing: 3px;
 }

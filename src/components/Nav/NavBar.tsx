@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { links } from "../parameters/config";
+import { links } from "../../parameters/config";
 import { NavLink, useLocation } from "react-router-dom";
-import { routes } from "../parameters/config";
+import { routes } from "../../parameters/config";
+import "./Nav.scss";
 
 const NavBar = () => {
   const [history, setHistory] = useState<number[]>([]);
   const [update, setUpdate] = useState<boolean>(false);
   let [prevNumber, currentNumber] = history;
-  const location: any = useLocation();
+  const location = useLocation();
 
   if (history.length > 2) history.shift();
 
-  useEffect(() => {
+  const updateHistory = () => {
     routes.forEach((route, index: number) => {
       if (
         currentNumber === index ||
@@ -21,7 +22,9 @@ const NavBar = () => {
 
       if (route.path === location.pathname) setHistory((h) => [...h, index]);
     });
-  }, [update, history]);
+  };
+
+  useEffect(() => updateHistory(), [history, update]);
 
   return (
     <nav className="nav">

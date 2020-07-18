@@ -1,5 +1,6 @@
-@import "../variables.scss";
-@import "../mixins.scss";
+@import "../../scss/variables.scss";
+@import "../../scss/mixins.scss";
+@import "./DoneTask480px.scss";
 
 .done-tasks {
     @include task-container();
