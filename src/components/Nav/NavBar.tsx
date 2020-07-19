@@ -6,7 +6,6 @@ import "./Nav.scss";
 
 const NavBar = () => {
   const [history, setHistory] = useState<number[]>([]);
-  const [update, setUpdate] = useState<boolean>(false);
   let [prevNumber, currentNumber] = history;
   const location = useLocation();
 
@@ -20,11 +19,11 @@ const NavBar = () => {
       )
         return;
 
-      if (route.path === location.pathname) setHistory((h) => [...h, index]);
+      if (route.path === location.pathname) setHistory([...history, index]);
     });
   };
 
-  useEffect(() => updateHistory(), [history, update]);
+  useEffect(() => updateHistory(), [location.pathname]);
 
   return (
     <nav className="nav">
@@ -36,7 +35,6 @@ const NavBar = () => {
               to={link.pathname}
               className="nav__link"
               data-text={link.text}
-              onClick={() => setUpdate(!update)}
             >
               {link.text}
             </NavLink>
